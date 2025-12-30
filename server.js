@@ -1,38 +1,32 @@
 require("dotenv").config();
-import express from "express";
 const express = require("express");
 const cors = require("cors");
-const connectDB = require("./config/db");
-
+const connectDB = require("./config/db"); // fix any old "New folder" path
 
 connectDB();
-
 const app = express();
-app.get("/", (req, res) => {
-  res.send("Backend is running");
-});
 
-// --------- MIDDLEWARE ----------
 app.use(express.json());
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://optima-frozen-in-code-53h2.vercel.app/" // your deployed frontend URL
+  "https://<your-frontend>.vercel.app"
 ];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
+    origin(origin, callback) {
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
       }
     },
-    credentials: true,
+    credentials: true
   })
 );
 
+// Root route so GET / works
 app.get("/", (req, res) => {
   res.send("Backend is running");
 });
