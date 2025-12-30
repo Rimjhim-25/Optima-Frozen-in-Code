@@ -2,7 +2,8 @@ require("dotenv").config();
 import express from "express";
 const express = require("express");
 const cors = require("cors");
-const connectDB = require("./New folder/config/db"); // your path was './config/db'
+const connectDB = require("./config/db");
+
 
 connectDB();
 
@@ -32,6 +33,9 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
 
 // --------- ROUTES ----------
 app.get("/", (req, res) => res.send("API is running"));
