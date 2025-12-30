@@ -1,16 +1,72 @@
-# React + Vite
+Optima – College Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Optima is a full‑stack college management system that streamlines day‑to‑day campus operations for admins, faculty, and students. It centralizes data, reduces manual work, and provides a modern dashboard experience.
 
-Currently, two official plugins are available:
+Features
+Admin dashboard for managing departments, courses, batches, and users.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Student module for viewing classes, resources, announcements, and schedules.
 
-## React Compiler
+Faculty module for managing attendance, assignments, and resource sharing.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Role‑based authentication and protected routes.
 
-## Expanding the ESLint configuration
+Responsive, dashboard‑style UI built for both desktop and laptop usage.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tech stack 
+
+Frontend: React, React Router, Tailwind CSS / custom CSS, Vite.
+
+Backend: Node.js, Express (if used), REST APIs.
+
+Database: MongoDB / any other DB you chose.
+
+Tools: Git, GitHub, VS Code.
+
+Getting started
+Prerequisites
+Node.js (LTS) and npm installed.
+
+Git installed.
+
+A MongoDB instance or your chosen database running (if backend is connected)
+ 
+Clone and Install 
+# clone repository
+git clone https://github.com/Rimjhim-25/Optima-Frozen-in-Code.git
+cd Optima-Frozen-in-Code
+
+# install frontend
+cd frontend
+npm install
+
+# in another terminal: install backend (if in /backend)
+cd backend
+npm install
+
+Run the app
+# frontend
+cd frontend
+npm run dev
+
+# backend
+cd backend
+npm run dev
+
+By default, the frontend runs on something like http://localhost:5173 and the backend on http://localhost:5000 (update these URLs if yours are different)
+
+
+Project structure (example)
+
+Optima-Frozen-in-Code/
+├── backend/  New Folder        # Server code, routes, models, controllers
+└── frontend/         # React app (Vite)
+    ├── src/
+    │   ├── api/      # API helpers
+    │   ├── components/
+    │   ├── context/
+    │   ├── pages/    # Dashboards, login, resources, etc.
+    │   └── App.jsx
+    ├── public/
+    ├── index.html
+    └── vite.config.js
