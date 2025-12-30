@@ -1,12 +1,15 @@
 require("dotenv").config();
-
+import express from "express";
 const express = require("express");
 const cors = require("cors");
-const connectDB = require("./config/db"); // your path was './config/db'
+const connectDB = require("./New folder/config/db"); // your path was './config/db'
 
 connectDB();
 
 const app = express();
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
 
 // --------- MIDDLEWARE ----------
 app.use(express.json());
@@ -33,14 +36,14 @@ app.use(
 // --------- ROUTES ----------
 app.get("/", (req, res) => res.send("API is running"));
 
-app.use("/api/auth", require("./Routes/authRoutes"));
+app.use("/api/auth", require("./New folder/Routes/authRoutes"));
 
-app.use("/api/dashboard", require("./Routes/dashboardRoutes"));
-app.use("/api/events", require("./Routes/eventRoutes"));
+app.use("/api/dashboard", require("./New folder/Routes/dashboardRoutes"));
+app.use("/api/events", require("./New folder/Routes/eventRoutes"));
 
 // --------- SERVER ----------
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = app;
+
 
 
 
