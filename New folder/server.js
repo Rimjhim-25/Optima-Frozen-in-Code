@@ -11,13 +11,24 @@ const app = express();
 // --------- MIDDLEWARE ----------
 app.use(express.json());
 
-// CORS: allow frontend on 5173
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://optima-frozen-in-code-53h2.vercel.app/" // your deployed frontend URL
+];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
+
 
 // --------- ROUTES ----------
 app.get("/", (req, res) => res.send("API is running"));
